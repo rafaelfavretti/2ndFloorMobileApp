@@ -39,6 +39,10 @@
             android:name=".BuscaProdutoActivity"
             android:label="@string/title_activity_busca_produto" >
         </activity>
+        <activity
+            android:name=".ProdutoActivity"
+            android:label="@string/title_activity_produto" >
+        </activity>
     </application>
 
 </manifest>

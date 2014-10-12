@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Ofertame</string>
-    <string name="hello_world"> </string>
+    <string name="hello_world"></string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_cadastrar">CadastrarActivity</string>
     <string name="txtNome">Nome:</string>
@@ -18,8 +18,16 @@
     <string name="txtParamBusca">Digite aqui o que está procurando!</string>
     <string name="txtBtnBusca">Buscar</string>
     <string name="desconectar">Desconectar</string>
+    <string name="txtBtnRatingProduto">Classificar</string>
+    <string name="txtPrecoProduto">Preço: </string>
+    <string name="txtNomeProduto">Nome: </string>
+    <string name="txtRefProduto">Ref: </string>
+    <string name="txtDescProduto">Descrição: </string>
+    <string name="txtDetalhesVendedor">Detalhes do vendedor</string>
+    <string name="txtRatingProduto">Esta oferta foi interessante pra você?</string>
     <string name="app_id">584534811651310</string>
     <string name="title_activity_cadastro">CadastroActivity</string>
     <string name="title_activity_busca_produto">BuscaProdutoActivity</string>
+    <string name="title_activity_produto">ProdutoActivity</string>
 
 </resources>
