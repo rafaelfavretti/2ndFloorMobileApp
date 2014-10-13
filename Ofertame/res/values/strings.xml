@@ -5,16 +5,18 @@
     <string name="hello_world"></string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_cadastrar">CadastrarActivity</string>
+    <string name="txtNomeUsario">Nome de Usuário</string>
+    <string name="txtEntrar">Entrar</string>
+    <string name="txtLoginFacebook">Logar com Facebook</string>
     <string name="txtNome">Nome:</string>
-    <string name="txtEmail">E-Mail:</string>
-    <string name="txtSenha">Senha:</string>
-    <string name="txtConfirmaSenha">Confirmar Senha:</string>
+    <string name="txtEmail">E-Mail</string>
+    <string name="txtSenha">Senha</string>
+    <string name="txtCriarConta">Criar uma Conta</string>
     <string name="txtCadastrar">Cadastrar</string>
     <string name="txtLimpar">Limpar</string>
     <string name="txtNomeLogin">Insira seu usuário</string>
     <string name="txtSenhaLogin">Insira sua senha</string>
     <string name="txtBtnLogin">Login</string>
-    <string name="txtLoginFacebook">Ou se preferir</string>
     <string name="txtParamBusca">Digite aqui o que está procurando!</string>
     <string name="txtBtnBusca">Buscar</string>
     <string name="desconectar">Desconectar</string>
@@ -29,5 +31,33 @@
     <string name="title_activity_cadastro">CadastroActivity</string>
     <string name="title_activity_busca_produto">BuscaProdutoActivity</string>
     <string name="title_activity_produto">ProdutoActivity</string>
+    
+    <style name="ButtonText">
+	   <item name="android:layout_width">fill_parent</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:textColor">#ffffff</item>
+	    <item name="android:gravity">center</item>
+	    <item name="android:layout_margin">3dp</item>
+	    <item name="android:textStyle">normal</item>
+	    <item name="android:textSize">20sp</item>
+	    <item name="android:shadowColor">#000000</item>
+	    <item name="android:shadowDx">1</item>
+	    <item name="android:shadowDy">1</item>
+	    <item name="android:shadowRadius">2</item>
+	</style>
+	
+    <style name="DefaultButtonText">
+	   <item name="android:layout_width">fill_parent</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:textColor">#979797</item>
+	    <item name="android:gravity">center</item>
+	    <item name="android:layout_margin">3dp</item>
+	    <item name="android:textStyle">normal</item>
+	    <item name="android:textSize">20sp</item>
+	    <item name="android:shadowColor">#000000</item>
+	    <item name="android:shadowDx">1</item>
+	    <item name="android:shadowDy">1</item>
+	    <item name="android:shadowRadius">2</item>
+	</style>
 
 </resources>
