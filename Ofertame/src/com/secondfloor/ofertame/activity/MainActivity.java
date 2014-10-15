@@ -3,17 +3,15 @@ package com.secondfloor.ofertame.activity;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.facebook.Request;
 import com.facebook.Response;
@@ -21,50 +19,21 @@ import com.facebook.Session;
 import com.facebook.SessionState;
 import com.facebook.model.GraphUser;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity implements OnClickListener {
 
-	public static final String PRF_USER = "login";
+	Button btnSignIn;
+	Button btnSignUp;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		Button btnEntrar = (Button) findViewById(R.id.btnEntrar);
-	    final EditText etUserName = (EditText) findViewById(R.id.etUserName);
-	    final EditText etPass = (EditText) findViewById(R.id.etPass);
-	       
-	       //Recuperando o Usuário cadastrado..... para entrar
-	       SharedPreferences login = getSharedPreferences(PRF_USER, MODE_PRIVATE);
-	       
-	       //Captura as informações inseridas pelo usuario e salva dentro do login
-	       final String userNameSave = login.getString("userName", "");
-	       final String passSave = login.getString("password", "");
-	       
-	       btnEntrar.setOnClickListener(new View.OnClickListener() {
-				
-				@Override
-				public void onClick(View v) {
-					
-					String user = etUserName.getText().toString();
-					String pass = etPass.getText().toString();
-					
-					if(user.equals("") || pass.equals("")){
-						Toast.makeText(getApplicationContext(), "Nenhum campo deve estar vazio", Toast.LENGTH_LONG).show();	
-					
-					}else if(user.equals(userNameSave) & pass.equals(passSave)){
-						//troca de tela
-						Toast.makeText(getApplicationContext(), "Bem vindo de volta " +user, Toast.LENGTH_LONG).show();
-					
-					}else{
-						//troca de tela
-						Toast.makeText(getApplicationContext(), "Usuário ou senha errado ", Toast.LENGTH_LONG).show();
-				
-					}
-				}
-			});
+		btnSignIn = (Button) findViewById(R.id.btnSingIn);
+		btnSignUp = (Button) findViewById(R.id.btnSignUp);
 		
-		
+		btnSignIn.setOnClickListener(this);
+		btnSignUp.setOnClickListener(this);
 	}
 
 	@Override
@@ -73,7 +42,7 @@ public class MainActivity extends ActionBarActivity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-
+	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle action bar item clicks here. The action bar will
@@ -89,10 +58,17 @@ public class MainActivity extends ActionBarActivity {
 	}
 
 	@Override
-	public void onActivityResult(int requestCode, int resultCode, Intent data) {
-		super.onActivityResult(requestCode, resultCode, data);
-		Session.getActiveSession().onActivityResult(this, requestCode,
-				resultCode, data);
+	public void onClick(View v) {
+		Intent i = null;
+		switch(v.getId()){
+			case R.id.btnSingIn:
+				i = new Intent(this,SignInActivity.class);
+				break;
+			case R.id.btnSignUp:
+				i = new Intent(this,SignUpActivity.class);
+				break;
+		}
+		startActivity(i);
 	}
 	
 	public void loginFacebook(View entrada){
@@ -135,18 +111,8 @@ public class MainActivity extends ActionBarActivity {
 		}
 		});
 	}
-	
+
 	public void deslogar(){
-		if(Session.getActiveSession().isOpened()){
-			Session.getActiveSession().closeAndClearTokenInformation();
-		}else{
-			Toast.makeText(getApplicationContext(), "Não há conexão ativa", Toast.LENGTH_LONG).show();
-		}
-	}
-	
-	public void redirecionaCriarConta(){
-	
-		Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
-		startActivity(intent);
+		Session.getActiveSession().closeAndClearTokenInformation();
 	}
 }
